@@ -1,0 +1,21 @@
+name: Hello World with Python
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hello-python:
+    name: Run the Python Hello World program
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Run the Python program
+        env:
+          WHO_TO_GREET: 'GitHub Actions Student'
+        run: python hello.py
